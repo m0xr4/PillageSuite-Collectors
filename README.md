@@ -12,4 +12,4 @@ You can use these collectors to enumerate data without the graphical interface o
 * Gather Credentials: Searches a list of strings in a list of files. Generates an easy to read HTML report with the findings
 
 # Usage
-See the wiki: 
+See the wiki: https://github.com/m0xr4/PillageSuite-Collectors/wiki
