@@ -158,7 +158,7 @@ async fn enumerate_computers(ldap: &mut ldap3::Ldap, base_dn: &str) -> Result<()
         "distinguishedName", "cn", "dNSHostName", "operatingSystem",
         "operatingSystemVersion", "whenCreated", "lastLogonTimestamp"]).await?;
 
-    let file = File::create("computers.jsonl")?;
+    let file = File::create("computers_.jsonl")?;
     let mut writer = BufWriter::new(file);
 
     for entry in entries {
@@ -247,7 +247,7 @@ async fn enumerate_users(ldap: &mut ldap3::Ldap, base_dn: &str) -> Result<(), En
     
     let entries = ldap_search(ldap, base_dn, filter, attrs_to_request).await?;
 
-    let file = File::create("users.jsonl")?;
+    let file = File::create("users_.jsonl")?;
     let mut writer = BufWriter::new(file);
 
     for entry in entries {
@@ -271,7 +271,7 @@ async fn enumerate_groups(ldap: &mut ldap3::Ldap, base_dn: &str) -> Result<(), E
     let entries = ldap_search(ldap, base_dn, "(objectClass=group)", vec![
         "distinguishedName", "cn", "member", "objectSid"]).await?;
 
-    let file = File::create("groups.jsonl")?;
+    let file = File::create("groups_.jsonl")?;
     let mut writer = BufWriter::new(file);
 
     for entry in entries {
